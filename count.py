@@ -53,11 +53,11 @@ async def on_message(message):
                 if ac >= 1:
                     if str(user_id) in admin_list:
                         try:
-                            if int(msg) >= 0 or int(msg) <= 0:
+                            if int(arg[1]) >= 0 or int(arg[1]) <= 0:
                                 with open("number.txt", 'w+', encoding='utf-8') as file:
-                                    file.write(str(int(msg)))
+                                    file.write(str(arg[1]))
                                 await message.delete()
-                                await message.channel.send("숫자를 리셋하였습니다!\n> **" + str(int(msg)) + "**부터 시작합니다")
+                                await message.channel.send("숫자를 리셋하였습니다!\n> **" + str(arg[1]) + "**부터 시작합니다")
                             else:
                                 await message.delete()
                         except:
@@ -84,8 +84,8 @@ async def on_message(message):
                         await message.delete()
                 except:
                     await message.delete()
-                    channel = bot.get_channel(self, id=727765114912112640)
-                    await channel.send(str(user) + " ▶ " + str(msg))
+                    channel = bot.get_channel(id=727765114912112640)
+                    await channel.send(str(user) + " ▷ " + str(msg))
         else:
             with open("number.txt", 'w+', encoding='utf-8') as file:
                 file.write("0")
