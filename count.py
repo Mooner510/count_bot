@@ -58,6 +58,8 @@ async def on_message(message):
                                     file.write(str(int(msg)))
                                 await message.delete()
                                 await message.channel.send("숫자를 리셋하였습니다!\n> **" + str(int(msg)) + "**부터 시작합니다")
+                            else:
+                                await message.delete()
                         except:
                             await message.delete()
                     else:
