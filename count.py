@@ -4,7 +4,6 @@ from discord.utils import get
 import os
 import time
 
-token = open("token.txt", "r").read()
 prefix = '!'
 bot = commands.Bot(command_prefix=prefix)
 
@@ -62,5 +61,6 @@ async def on_message(message):
                 file.write("0")
             await message.delete()
             await message.channel.send("숫자를 리셋하였습니다!\n> 1부터 시작합니다")
-            
+
+token = os.environ["BOT_TOKEN"]
 bot.run(token)
